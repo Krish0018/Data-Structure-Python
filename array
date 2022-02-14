@@ -1,0 +1,44 @@
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+
+soultion: 
+        def removeDuplicates(nums) -> int:
+        if len(nums) == 0:
+            return 0
+
+        p = 0
+        for i in range (1, len(nums)):
+            if nums[p] != nums[i]:
+                nums[p + 1] = nums[i]
+                p = p + 1
+        return p + 1
+        
+
+Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
+
+solution:
+      def removeElement(nums, val) -> int:
+        while True:
+            try:
+                a = nums.index(val)
+            except: break
+            nums.pop(a)
+        return len(nums)
+        
+ Implement strStr().
+
+Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+soultion:
+      def strStr(haystack, needle):
+
+          a = len(needle)
+          b = len(haystack)
+          if needle in haystack and (a and b) != 0:
+              for i in range(b):
+                  if haystack[i:i+a] == needle:
+                     return i
+          elif a == 0:
+              return 0
+    
+          else:
+              return -1
